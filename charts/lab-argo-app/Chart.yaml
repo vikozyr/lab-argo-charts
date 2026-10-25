@@ -5,5 +5,5 @@ type: application
 home: https://github.com/vikozyr/lab-argo-app
 sources:
   - https://github.com/vikozyr/lab-argo-app
-version: 1.0.2 # CI підвищує разом з appVersion, інакше chart-releaser не випустить реліз
-appVersion: "1.0.2" # CI замінює на версію образу
+version: 1.0.3 # CI підвищує разом з appVersion, інакше chart-releaser не випустить реліз
+appVersion: "1.0.3" # CI замінює на версію образу
