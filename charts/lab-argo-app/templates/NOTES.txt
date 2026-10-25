@@ -1,0 +1,6 @@
+Застосунок {{ include "lab-argo-app.fullname" . }} ({{ .Values.image.repository }}:{{ .Values.image.tag }}) розгорнуто.
+{{- if .Values.ingress.enabled }}
+Адреса: https://{{ .Values.ingress.host }}/
+{{- else }}
+kubectl -n {{ .Release.Namespace }} port-forward svc/{{ include "lab-argo-app.fullname" . }} 8081:{{ .Values.service.port }}
+{{- end }}
