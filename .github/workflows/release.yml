@@ -1,0 +1,36 @@
+# Публікація Helm-чартів через chart-releaser (cr):
+# для кожного чарту в charts/ з новою версією створює GitHub Release з .tgz
+# і оновлює index.yaml у гілці gh-pages. GitHub Pages віддає цей index як Helm-репозиторій:
+# https://vikozyr.github.io/lab-argo-charts
+name: Release Charts
+
+on:
+  push:
+    branches: [main]
+    paths: ["charts/**"]
+  workflow_dispatch:
+
+permissions:
+  contents: write # створення релізів і пуш у gh-pages
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0 # cr порівнює з попереднім тегом, потрібна вся історія
+
+      - name: Configure Git
+        run: |
+          git config user.name "$GITHUB_ACTOR"
+          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
+
+      - name: Install Helm
+        uses: azure/setup-helm@v4
+
+      - name: Run chart-releaser
+        uses: helm/chart-releaser-action@v1.7.0
+        env:
+          CR_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
