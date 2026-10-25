@@ -2,6 +2,19 @@ apiVersion: v1
 entries:
   lab-argo-app:
   - apiVersion: v2
+    appVersion: 1.0.2
+    created: "2026-10-25T22:37:25.406873851Z"
+    description: Розклад занять (Go, Fiber) для лабораторної з Argo CD
+    digest: bcec3581a6716a25a77cb4e530233fe1dda6ee9ae722f1273f1e348b7d1db377
+    home: https://github.com/vikozyr/lab-argo-app
+    name: lab-argo-app
+    sources:
+    - https://github.com/vikozyr/lab-argo-app
+    type: application
+    urls:
+    - https://github.com/vikozyr/lab-argo-charts/releases/download/lab-argo-app-1.0.2/lab-argo-app-1.0.2.tgz
+    version: 1.0.2
+  - apiVersion: v2
     appVersion: latest
     created: "2026-10-25T22:19:23.354164618Z"
     description: Розклад занять (Go, Fiber) для лабораторної з Argo CD
@@ -14,4 +27,4 @@ entries:
     urls:
     - https://github.com/vikozyr/lab-argo-charts/releases/download/lab-argo-app-0.1.0/lab-argo-app-0.1.0.tgz
     version: 0.1.0
-generated: "2026-10-25T22:19:23.354169848Z"
+generated: "2026-10-25T22:37:25.406881683Z"
